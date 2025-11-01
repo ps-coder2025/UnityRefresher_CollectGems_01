@@ -154,8 +154,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   knockbackForce: 8
-  recoveryDrag: 8
-  dragDuration: 0.3
 --- !u!65 &32245536
 BoxCollider:
   m_ObjectHideFlags: 0
