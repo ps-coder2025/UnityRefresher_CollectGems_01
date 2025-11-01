@@ -967,6 +967,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: -6241757136630827850, guid: 4b29630809c10894d894879bf6a3aaa2, type: 3}
+      propertyPath: speed
+      value: 1.5
+      objectReference: {fileID: 0}
     - target: {fileID: 2201764781606375651, guid: 4b29630809c10894d894879bf6a3aaa2, type: 3}
       propertyPath: m_Name
       value: MovingPlatform
@@ -2063,7 +2067,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 3058890511082010, guid: b1ac51413c0cb9b4ba9cc57f6e89ce89, type: 3}
       propertyPath: m_Drag
-      value: 2
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 3058890511082010, guid: b1ac51413c0cb9b4ba9cc57f6e89ce89, type: 3}
       propertyPath: m_Mass
