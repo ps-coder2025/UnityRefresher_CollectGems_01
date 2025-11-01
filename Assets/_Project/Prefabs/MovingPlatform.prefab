@@ -13,6 +13,7 @@ GameObject:
   - component: {fileID: 835659081065090116}
   - component: {fileID: 4015295950923815154}
   - component: {fileID: -6241757136630827850}
+  - component: {fileID: 68250592492105361}
   m_Layer: 0
   m_Name: MovingPlatform
   m_TagString: Untagged
@@ -124,3 +125,15 @@ MonoBehaviour:
   pointA: {x: -3, y: 1, z: 0}
   pointB: {x: 3, y: 1, z: 0}
   speed: 2
+--- !u!114 &68250592492105361
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2201764781606375651}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 828faa208002f9a4591af8bde0e55438, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
