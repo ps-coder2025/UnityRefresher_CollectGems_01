@@ -1,32 +1,47 @@
 using UnityEngine;
 using TMPro;
 
-
 public class PlayerCollector : MonoBehaviour
 {
+    [Header("UI")]
     public TextMeshProUGUI scoreText;
+
     private int score = 0;
 
     private void Start()
     {
-        if (scoreText != null)
+        UpdateScoreText();
+    }
+
+    private void OnTriggerEnter(Collider other)
+    {
+        if (other.CompareTag("Gem"))
         {
-            scoreText.text = "Score: 0";
+            AudioSource gemAudio = other.GetComponent<AudioSource>();
+
+            if (gemAudio != null && gemAudio.clip != null)
+            {
+                // Play the gem sound, then destroy after it finishes
+                gemAudio.Play();
+                Destroy(other.gameObject, gemAudio.clip.length);
+            }
+            else
+            {
+                // No audio, destroy instantly
+                Destroy(other.gameObject);
+            }
+
+            // Increment and update score
+            score++;
+            UpdateScoreText();
         }
     }
-        private void OnTriggerEnter(Collider other)
+
+    private void UpdateScoreText()
     {
+        if (scoreText != null)
         {
-            if (other.CompareTag("Gem"))
-            {
-                Destroy(other.gameObject);
-                score++;
-                if (scoreText != null)
-                {
-                    scoreText.text = $"Score: {score}";
-                }
-            }
+            scoreText.text = $"Score: {score}";
         }
     }
 }
-

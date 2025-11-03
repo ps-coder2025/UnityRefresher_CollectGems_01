@@ -21,5 +21,10 @@ public class Bumper : MonoBehaviour
             if (rb.linearVelocity.magnitude > 10f)
                 rb.linearVelocity = rb.linearVelocity.normalized * 10f;
         }
+        AudioSource audio = GetComponent<AudioSource>();
+        if(audio != null && audio.clip != null)
+        {
+            audio.Play();
+        }
     }
 }

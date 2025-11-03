@@ -30,6 +30,18 @@ public class PlayerController : MonoBehaviour
         if (isGrounded && Input.GetKeyDown(KeyCode.Space))
         {
             rb.AddForce(Vector3.up * jumpForce, ForceMode.Impulse);
+
+            AudioSource audio = GetComponent < AudioSource>();
+
+            if (audio != null && audio.clip != null )
+            {
+                audio.Play();
+            }
+            ParticleSystem jumpFX = GetComponentInChildren<ParticleSystem>();
+            if (jumpFX != null)
+            {
+                jumpFX.Play();
+            }
         }
     }
 
