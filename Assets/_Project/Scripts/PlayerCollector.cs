@@ -29,6 +29,7 @@ public class PlayerCollector : MonoBehaviour
             {
                 // No audio, destroy instantly
                 Destroy(other.gameObject);
+                GameManager.I?.OnGemCollected();
             }
 
             // Increment and update score
