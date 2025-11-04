@@ -15,34 +15,27 @@ public class PlayerCollector : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
-        if (other.CompareTag("Gem"))
-        {
-            AudioSource gemAudio = other.GetComponent<AudioSource>();
+        // Only react to Gems
+        if (!other.CompareTag("Gem")) return;
 
-            if (gemAudio != null && gemAudio.clip != null)
+        // Use the Gem script to handle collection logic
+        if (other.TryGetComponent<Gem>(out var gem))
+        {
+            // Collect() returns true only the first time
+            if (gem.Collect())
             {
-                // Play the gem sound, then destroy after it finishes
-                gemAudio.Play();
-                Destroy(other.gameObject, gemAudio.clip.length);
-            }
-            else
-            {
-                // No audio, destroy instantly
-                Destroy(other.gameObject);
+                score++;
+                UpdateScoreText();
+
+                // Notify GameManager to check win condition
                 GameManager.I?.OnGemCollected();
             }
-
-            // Increment and update score
-            score++;
-            UpdateScoreText();
         }
     }
 
     private void UpdateScoreText()
     {
         if (scoreText != null)
-        {
             scoreText.text = $"Score: {score}";
-        }
     }
 }
